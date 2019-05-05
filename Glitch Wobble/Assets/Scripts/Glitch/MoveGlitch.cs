@@ -6,6 +6,9 @@ public class MoveGlitch : MonoBehaviour {
 
     Rigidbody2D glitchBody;
 
+    //Animation
+    private Animator anim;
+
     //Movement
     public float speed;
 
@@ -17,6 +20,7 @@ public class MoveGlitch : MonoBehaviour {
     void Start() {
 
         glitchBody = gameObject.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -34,12 +38,23 @@ public class MoveGlitch : MonoBehaviour {
         if(move < 0)
         {
             glitchScale.x = 0.5f;
+            /*anim.SetBool("isRunning", true);*/
         }
+        /*else if(move == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }*/
         if(move > 0)
         {
             glitchScale.x = -0.5f;
+            /*anim.SetBool("isRunning", true);*/
         }
-
+        /*else if(move == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }*/
+        
+        
         transform.localScale = glitchScale;
 	}
 
@@ -51,6 +66,9 @@ public class MoveGlitch : MonoBehaviour {
             isJumping = true;
 
             glitchBody.AddForce(new Vector2(glitchBody.velocity.x, jumpPower));
+
+            //Jump Animation
+            anim.SetTrigger("jump");
         }
     }
 
@@ -61,6 +79,7 @@ public class MoveGlitch : MonoBehaviour {
             isJumping = false;
 
             glitchBody.velocity = Vector2.zero;
+            
         }
 
          if(collision.gameObject.CompareTag("MovingPlatform"))

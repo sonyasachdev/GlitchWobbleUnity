@@ -225,6 +225,7 @@
     <Compile Include="Assets\Scripts\Glitch\MoveGlitch.cs" />
     <Compile Include="Assets\Scripts\Platforms\HorizontalPlatformMove.cs" />
     <Compile Include="Assets\Scripts\Platforms\VerticalPlatformMove.cs" />
+    <Compile Include="Assets\Scripts\UI\Menu.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4890850593017040}
   - component: {fileID: 212838614818275074}
-  - component: {fileID: 61642989345514388}
+  - component: {fileID: 68369647696690422}
   m_Layer: 0
   m_Name: MidPieceBlue-2
   m_TagString: Ground
@@ -41,8 +41,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61642989345514388
-BoxCollider2D:
+--- !u!68 &68369647696690422
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -53,19 +53,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 2.74}
-    newSize: {x: 10, y: 2.74}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2}
+  m_Offset: {x: 0, y: 0.7}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -5, y: 0}
+  - {x: 5, y: 0}
 --- !u!212 &212838614818275074
 SpriteRenderer:
   m_ObjectHideFlags: 1
