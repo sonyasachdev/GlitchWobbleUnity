@@ -5,7 +5,7 @@ using UnityEngine;
 public class HurtCollide : MonoBehaviour {
 
     //Movement Check
-    bool moveRight = true;
+    bool moveRight;
 
     //Platform Speed
     float dirX, moveSpeed = 2f;
@@ -13,11 +13,14 @@ public class HurtCollide : MonoBehaviour {
     //Platform Bounds
     public float rightBound;
     public float leftBound;
-    
+
+    //Lives
+    public int lives;
 
     // Use this for initialization
     void Start()
     {
+        moveRight = true;
     }
 
     // Update is called once per frame
