@@ -37,22 +37,22 @@ public class MoveGlitch : MonoBehaviour {
         Vector3 glitchScale = transform.localScale;
         if(move < 0)
         {
-            glitchScale.x = 0.5f;
-            /*anim.SetBool("isRunning", true);*/
+            glitchScale.x = -3f;
+            anim.SetBool("isRunning", true);
         }
-        /*else if(move == 0)
+        else if(move == 0)
         {
             anim.SetBool("isRunning", false);
-        }*/
+        }
         if(move > 0)
         {
-            glitchScale.x = -0.5f;
-            /*anim.SetBool("isRunning", true);*/
+            glitchScale.x = 3f;
+            anim.SetBool("isRunning", true);
         }
-        /*else if(move == 0)
+        else if(move == 0)
         {
             anim.SetBool("isRunning", false);
-        }*/
+        }
         
         
         transform.localScale = glitchScale;

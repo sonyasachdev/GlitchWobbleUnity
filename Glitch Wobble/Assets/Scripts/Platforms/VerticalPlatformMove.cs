@@ -6,25 +6,31 @@ public class VerticalPlatformMove : MonoBehaviour {
 
 
     //Movement Check
-    bool moveUp = true;
+    public bool moveUp;
 
     //Platform Speed
-    float dirY, moveSpeed = 3f;
+    float dirY;
+    public float moveSpeed;
+
+    //Bounds
+    public float upBound;
+    public float downBound;
 
     // Use this for initialization
     void Start()
     {
+        //Makes platform start moving up
     }
 
     // Update is called once per frame
     void Update()
     {
         //Setting Bounds
-        if (transform.position.y > 4f)
+        if (transform.position.y > upBound)
         {
             moveUp = false;
         }
-        if (transform.position.y < -4f)
+        if (transform.position.y < downBound)
         {
             moveUp = true;
         }
@@ -32,11 +38,11 @@ public class VerticalPlatformMove : MonoBehaviour {
         //Movement Scripts
         if (moveUp)
         {
-            transform.position = new Vector2(transform.position.y + moveSpeed * Time.deltaTime, transform.position.x);
+            transform.position = new Vector2(transform.position.x, transform.position.y + moveSpeed * Time.deltaTime);
         }
         else
         {
-            transform.position = new Vector2(transform.position.y - moveSpeed * Time.deltaTime, transform.position.x);
+            transform.position = new Vector2(transform.position.x, transform.position.y - moveSpeed * Time.deltaTime);
         }
 
     }

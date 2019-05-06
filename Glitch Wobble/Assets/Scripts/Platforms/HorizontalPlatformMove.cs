@@ -5,14 +5,16 @@ using UnityEngine;
 public class HorizontalPlatformMove : MonoBehaviour {
 
     //Movement Check
-    bool moveRight = true;
+    public bool moveRight;
 
     //Platform Speed
-    float dirX, moveSpeed = 3f;
+    float dirX;
+    public float moveSpeed;
 
     //Platform Bounds
     public float rightBound;
     public float leftBound;
+
     // Use this for initialization
     void Start()
     {

@@ -8,6 +8,7 @@ TagManager:
   - MovingPlatform
   - Enemy
   - Lives
+  - Death Zone
   layers:
   - Default
   - TransparentFX

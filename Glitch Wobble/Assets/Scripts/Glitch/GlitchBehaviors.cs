@@ -28,7 +28,7 @@ public class GlitchBehaviors : MonoBehaviour {
     public float attackTimer;
 
     //Enemy
-    public GameObject enemy;
+    //public GameObject enemy;
 
     //Animation
     protected Animator anim;
@@ -60,7 +60,7 @@ public class GlitchBehaviors : MonoBehaviour {
         {
             invulTimer = 3f;
             //End Animation
-            anim.SetBool("isHurt", false);
+            anim.SetTrigger("hurt");
         }
 
         //Attack
@@ -80,7 +80,7 @@ public class GlitchBehaviors : MonoBehaviour {
         }
     }
 
-    //Hurt Method
+    //Trigger Method
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Hurt Collide
@@ -91,7 +91,7 @@ public class GlitchBehaviors : MonoBehaviour {
             invulTimer -= Time.deltaTime;
 
             //Start Animation
-            anim.SetBool("isHurt", true);
+            anim.SetTrigger("hurt");
 
             //Makes GUI Hearts Disappear
             if(heart1.enabled)
@@ -130,6 +130,33 @@ public class GlitchBehaviors : MonoBehaviour {
                 //destroys enemy
                 Destroy(collision.gameObject);
             }
+            
+        }
+
+        //Finish Level
+        if(collision.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene("You Win");
+        }
+
+        //Death Zone
+        if(collision.gameObject.CompareTag("Death Zone"))
+        {
+            /* Restart Level with lives lost
+            if(lives > 0)
+            {
+                //Finds scene that you're on
+                Scene currentLevel = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentLevel.name);
+                lives--;
+            }
+            else
+            {
+                SceneManager.LoadScene("Game Over");
+            }*/
+            
+            //Ends Game when in Death Zone
+            SceneManager.LoadScene("Game Over");
             
         }
     }

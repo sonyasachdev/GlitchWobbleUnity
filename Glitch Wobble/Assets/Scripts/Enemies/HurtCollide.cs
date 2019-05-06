@@ -42,12 +42,19 @@ public class HurtCollide : MonoBehaviour {
         if (moveRight)
         {
             transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
-            enemyScale.x = -2f;
+            if(enemyScale.x > 0)
+            {
+                enemyScale.x *= -1f;
+            }
+            
         }
         else
         {
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
-            enemyScale.x = 2f;
+            if(enemyScale.x < 0)
+            {
+                enemyScale.x *= -1f;
+            }
         }
 
         transform.localScale = enemyScale;
