@@ -16,10 +16,18 @@ public class VerticalPlatformMove : MonoBehaviour {
     public float upBound;
     public float downBound;
 
+    //Active State
+    private bool isActive;
+    public float activeTimer;
+    private float timeReset;
+    public SpriteRenderer sprender;
+
     // Use this for initialization
     void Start()
     {
-        //Makes platform start moving up
+        isActive = true;
+        timeReset = activeTimer;
+        sprender = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -45,5 +53,46 @@ public class VerticalPlatformMove : MonoBehaviour {
             transform.position = new Vector2(transform.position.x, transform.position.y - moveSpeed * Time.deltaTime);
         }
 
+        //Active Timer
+        //Platform On
+        if (isActive)
+        {
+            if (activeTimer > 0)
+            {
+                activeTimer -= Time.deltaTime;
+            }
+            else
+            {
+                //Turns off Platform
+                isActive = false;
+                gameObject.GetComponent<Collider2D>().enabled = false;
+                activeTimer = timeReset;
+
+
+                //Turns off Sprite
+                sprender.enabled = false;
+                Debug.Log("active");
+            }
+        }
+        //Platform Off
+        else
+        {
+            if (activeTimer > 0)
+            {
+
+                activeTimer -= Time.deltaTime;
+            }
+            else
+            {
+                //Turns on Platform
+                isActive = true;
+                gameObject.GetComponent<Collider2D>().enabled = true;
+                activeTimer = timeReset;
+
+                //Turns on Sprite
+                sprender.enabled = true;
+                Debug.Log("inactive");
+            }
+        }
     }
 }
